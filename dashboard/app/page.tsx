@@ -44,11 +44,11 @@ export default function DashboardOverview() {
   }
 
   return (
-    <div className="p-8 space-y-8">
-      <h1 className="text-3xl font-bold">Dashboard Overview</h1>
+    <div className="p-12 space-y-8">
+      <h1 className="text-4xl font-semibold">Observability Dashboard</h1>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-3">Metrics Overview</h2>
+        <h2 className="text-3xl mb-9">Metrics Overview</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {metrics.map(metric => (
             <MetricCard key={metric.id} metric={metric} />
