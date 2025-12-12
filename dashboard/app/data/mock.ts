@@ -7,30 +7,34 @@ export const metrics: Metric[] = [
   {
     id: uuidv4(),
     name: "Request Count",
-    value: Math.floor(Math.random() * 5000),
+    value: 0,
     timestamp: now,
     tags: { env: "prod", service: "api", region: "us-east-1" },
+    unit: "requests"
   },
   {
     id: uuidv4(),
     name: "CPU Usage",
-    value: parseFloat((Math.random() * 80 + 20).toFixed(2)),
+    value: 0,
     timestamp: now,
     tags: { env: "prod", service: "backend", host: "server-3" },
+    unit: "%"
   },
   {
     id: uuidv4(),
     name: "Memory Usage",
-    value: Math.floor(Math.random() * 4000 + 1000),
+    value: 0,
     timestamp: now,
     tags: { env: "prod", service: "backend", host: "server-1" },
+    unit: "MB"
   },
   {
     id: uuidv4(),
     name: "Latency",
-    value: parseFloat((Math.random() * 200 + 50).toFixed(2)),
+    value: 0,
     timestamp: now,
     tags: { env: "prod", service: "web" },
+    unit: "ms"
   },
 ];
 

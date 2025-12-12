@@ -4,6 +4,7 @@ export type Metric = {
     value: number
     timestamp: number
     tags: Record<string, string>
+    unit?: string
 }
   
   export type LogEntry = {
