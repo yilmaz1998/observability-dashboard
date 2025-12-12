@@ -31,7 +31,7 @@ export default function DashboardOverview() {
   function generateRandom(name: string) {
     switch (name) {
       case "Request Count":
-        return Math.floor(Math.random() * 5000);
+        return Math.floor(Math.random() * 2500);
       case "CPU Usage":
         return parseFloat((Math.random() * 80 + 20).toFixed(2));
       case "Memory Usage":
@@ -49,7 +49,7 @@ export default function DashboardOverview() {
 
       <section>
         <h2 className="text-3xl mb-9">Metrics Overview</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
           {metrics.map(metric => (
             <MetricCard key={metric.id} metric={metric} />
           ))}
