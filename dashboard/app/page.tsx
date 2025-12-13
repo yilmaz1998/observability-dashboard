@@ -44,7 +44,7 @@ export default function DashboardOverview() {
   }
 
   return (
-    <div className="p-12 space-y-8">
+    <div className="p-6 space-y-8">
       <h1 className="text-4xl font-semibold">Observability Dashboard</h1>
 
       <section>
