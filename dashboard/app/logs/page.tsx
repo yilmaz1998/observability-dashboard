@@ -1,5 +1,4 @@
 import React from 'react'
-import { logs } from '@/app/data/mock'
 import LogsCard from '@/app/components/LogsCard'
 
 export default function Logs () {
