@@ -1,0 +1,12 @@
+import React from 'react'
+import { logs } from '@/app/data/mock'
+import LogsCard from '@/app/components/LogsCard'
+
+export default function Logs () {
+  return (
+    <div className='p-6'>
+        <h1 className='text-4xl mb-8'>System Logs</h1>
+        <LogsCard />
+    </div>
+  )
+}
