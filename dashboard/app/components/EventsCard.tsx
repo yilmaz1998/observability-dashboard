@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { EventEntry } from "@/app/data/types";
-import { events } from "@/app/data/mock";
 
 const levelSeverity = (severity: string) => {
     switch (severity) {
@@ -23,7 +22,7 @@ const levelSeverity = (severity: string) => {
 };
 
 
-export default function EventsCard() {
+export default function EventsCard( { events }: { events: EventEntry[] } ) {
     return (
         <div className="p-4 rounded-xl border border-white mb-4">
             <Table>

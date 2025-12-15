@@ -53,29 +53,17 @@ export const logs: LogEntry[] = Array.from({ length: 50 }).map(() => ({
   },
 }));
 
-export const events: EventEntry[] = [
-  {
-    id: uuidv4(),
-    title: "Deployment completed",
-    message: "Version 2.4.1 successfully deployed",
-    severity: "info",
-    timestamp: now - 1000 * 200,
-    tags: { env: "prod", service: "api", version: "2.4.1" },
+const eventSeverities = ["info", "warning", "error"] as const;
+
+export const events: EventEntry[] = Array.from({ length: 20 }).map(() => ({
+  id: uuidv4(),
+  title: "Mock Event Title",
+  severity: eventSeverities[Math.floor(Math.random() * eventSeverities.length)],
+  message: "Mock event message",
+  timestamp: now - Math.floor(Math.random() * 1000 * 3600 * 24),
+  tags: {
+    env: ["prod", "dev", "staging", "test"][Math.floor(Math.random() * 4)],
+    service: ["api", "backend", "auth", "frontend", "db"][Math.floor(Math.random() * 5)],
+    version: ["2.4.1", "2.5.0", "2.5.1", "2.6.1"][Math.floor(Math.random() * 4)]
   },
-  {
-    id: uuidv4(),
-    title: "CPU threshold breached",
-    message: "CPU usage exceeded 90%",
-    severity: "warning",
-    timestamp: now - 1000 * 300,
-    tags: { env: "prod", service: "backend" },
-  },
-  {
-    id: uuidv4(),
-    title: "Database down",
-    message: "Primary DB is unreachable",
-    severity: "error",
-    timestamp: now - 1000 * 360,
-    tags: { env: "prod", service: "db" },
-  },
-];
+}));
