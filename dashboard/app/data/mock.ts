@@ -38,36 +38,20 @@ export const metrics: Metric[] = [
   },
 ];
 
-export const logs: LogEntry[] = [
-  {
-    id: uuidv4(),
-    level: "info",
-    message: "User successfully authenticated",
-    timestamp: now - 1000 * 10,
-    tags: { env: "prod", service: "auth" },
+const logLevels = ["info", "warn", "error"] as const;
+
+export const logs: LogEntry[] = Array.from({ length: 50 }).map(() => ({
+  id: uuidv4(),
+  level: logLevels[Math.floor(Math.random() * logLevels.length)],
+  message: "Mock log message",
+  timestamp: now - Math.floor(Math.random() * 1000 * 3600),
+  tags: {
+    env: ["prod", "dev", "staging", "test"][Math.floor(Math.random() * 4)],
+    service: ["api", "backend", "auth", "frontend", "db"][
+      Math.floor(Math.random() * 5)
+    ],
   },
-  {
-    id: uuidv4(),
-    level: "warn",
-    message: "High memory usage detected",
-    timestamp: now - 1000 * 30,
-    tags: { env: "prod", service: "backend", host: "server-1" },
-  },
-  {
-    id: uuidv4(),
-    level: "error",
-    message: "Database connection timeout",
-    timestamp: now - 1000 * 60,
-    tags: { env: "prod", service: "db" },
-  },
-  {
-    id: uuidv4(),
-    level: "info",
-    message: "Request processed",
-    timestamp: now - 1000 * 90,
-    tags: { env: "prod", service: "api" },
-  },
-];
+}));
 
 export const events: EventEntry[] = [
   {

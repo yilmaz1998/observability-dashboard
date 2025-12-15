@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { LogEntry } from "@/app/data/types";
-import { logs } from "@/app/data/mock";
 
 const levelVariant = (level: string) => {
     switch (level) {
@@ -22,7 +21,7 @@ const levelVariant = (level: string) => {
     }
 };
 
-export default function LogsCard() {
+export default function LogsCard({ logs }: { logs: LogEntry[] }) {
     return (
         <div className="p-4 rounded-xl border border-white mb-4">
             <Table>
